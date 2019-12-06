@@ -9,8 +9,15 @@
         <title>PrimeFaces Test</title>
     </h:head>
     <h:body>
-
-        <h1>#{testView.testString}</h1>
+        <h:form>
+            <p:growl>
+                <p:autoUpdate />
+            </p:growl>
+            <p:selectCheckboxMenu id="checkbox" value="#{testView.selected}" label="Select One">
+                <p:ajax listener="#{testView.onItemSelect}" />
+                <f:selectItems value="#{testView.testList}" var="t" itemLabel="#{t}" itemValue="#{t}" />
+            </p:selectCheckboxMenu>
+        </h:form>
 
     </h:body>
 </html>
